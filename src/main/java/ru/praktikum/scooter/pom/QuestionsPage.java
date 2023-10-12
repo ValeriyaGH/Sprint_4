@@ -1,5 +1,4 @@
 package ru.praktikum.scooter.pom;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -19,10 +18,9 @@ public class QuestionsPage {
 //Конструктор класса, позволяющий с помощью смены id искать вопросы и соотвествующие им ответы
     public QuestionsPage(WebDriver webDriver, String accordionId){
         this.webDriver = webDriver;
-        this.accordionItemHeading = By.xpath(".//div[@id='"+ accordionId +"']");
-        this.accordionItemPanel = By.xpath(".//div[@aria-labelledby='"+ accordionId +"']");
-        this.accordionItemPanelText = By.xpath(".//div[@aria-labelledby='"+ accordionId +"']/p");
-
+        this.accordionItemHeading = By.xpath(".//div[@id='accordion__heading-"+accordionId+"']");
+        this.accordionItemPanel = By.xpath(".//div[@aria-labelledby='accordion__heading-"+accordionId+"']");
+        this.accordionItemPanelText = By.xpath(".//div[@aria-labelledby='accordion__heading-"+accordionId+"']/p");
     }
 
     public void clickAccordionItemHeading() {
@@ -43,6 +41,4 @@ public class QuestionsPage {
         ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", element);
 
     }
-
-
 }
